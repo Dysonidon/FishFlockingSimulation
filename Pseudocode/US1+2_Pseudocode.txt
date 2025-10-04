@@ -1,0 +1,17 @@
+FUNCTION initialize ():
+	SET buttonSelection = ArrayList(redBtn, greenBtn, purpleBtn, yellowBtn, blackBtn)
+	
+	FOR button IN buttonSelection:
+		button.setOnAction:
+			IF button is selected THEN
+				unselectAll()
+                unhighlightAll()
+                selectBtn(button)
+                highlightButton(button)
+			ELSE
+				unselectAll()
+                unhighlightAll()
+			ENDIF
+		END
+	ENDFOR
+ENDFUNCTION

@@ -1,0 +1,23 @@
+FUNCTION spawnFish ():
+	Vector steerForce = new Vector()
+    int count = 0
+	FOR SeaCreature otherEntities:
+		IF otherEntitt IS NOT this THEN
+			IF distance > 0 AND distance < desiredSeparation THEN
+				Vector diff = getDifference(position, otherEntity.position)
+                diff.normalize()
+                diff.divide(distance)
+				steerForce.add(diff)
+                count++
+			ENDIF
+		ENDIF
+	ENDFOR
+	IF count > 0 THEN
+		steerForce.divide(count)
+	ENDFOR
+	IF steerForce.getMagnitude() > 0 THEN
+		steerForce.setMagnitude(MAX_SPEED)
+        steerForce.subtract(velocity)
+        steerForce.limitMagnitude(MAX_FORCE)
+	ENDFOR
+ENDFUNCTION

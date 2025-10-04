@@ -1,0 +1,7 @@
+FUNCTION eatFish ():
+	double distance = getDifference(position, target.position).getMagnitude()
+	IF distance LESS THAN 20 THEN
+		fishesReference.remove(target)
+		boardReference.getChildren().remove(target)
+	ENDIF
+ENDFUNCTION

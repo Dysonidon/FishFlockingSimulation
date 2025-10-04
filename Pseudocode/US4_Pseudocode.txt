@@ -1,0 +1,14 @@
+FUNCTION wander ():
+	Vector targetVelocity = velocity.copy
+	targetVelocity.setMagnitude(100)
+	targetVelocity.add(position)
+	double wanderRadius = 50
+	double theta = wanderTheta + velocity.getHeading
+	double x = wanderRadius * Math.cos(theta)
+    double y = wanderRadius * Math.sin(theta)
+	targetVelocity.add(Vector(x,y))
+	Vector steerForce = targetVelocity.subtract(position)
+	steerForce.setMagnitude(MAX_FORCE)
+	physicsHandler.applyForce(steerForce)
+	wanderTheta += -0.3 + (0.3 + 0.3) * Math.random()
+ENDFUNCTION

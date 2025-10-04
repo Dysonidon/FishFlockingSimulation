@@ -1,0 +1,11 @@
+FUNCTION flockingBehaviour ():
+	Vector separationForce = calculateSeparationForce()
+	Vector alignmentForce = calculateAlignmentForce()
+	Vector cohereForce = calculateCohereForce()
+	separationForce.multiply(1.2)
+	alignmentForce.multiply(0.8)
+	cohereForce.multiply(0.8)
+	physicsHandler.applyForce(separationForce)
+    physicsHandler.applyForce(alignmentForce)
+    physicsHandler.applyForce(cohereForce)
+ENDFUNCTION

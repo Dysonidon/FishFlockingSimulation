@@ -1,0 +1,19 @@
+FUNCTION seek ():
+	Vector desiredSteerForce = target.copy().subtract(position)
+    desiredSteerForce.setMagnitude(MAX_SPEED)
+    desiredSteerForce.subtract(velocity)
+    desiredSteerForce.limitMagnitude(MAX_FORCE)
+    RETURN desiredSteerForce
+ENDFUNCTION
+
+FUNCTION pursue ():
+	Vector targetPosition = target.position.copy()
+    Vector predictedPosition = target.velocity.copy().multiply(10)
+    targetPosition.add(predictedPosition)
+    physicsHandler.applyForce(seek(targetPosition))
+ENDFUNCTION
+
+FUNCTION evade ():
+	Vector evadeForce = seek(shark.position).multiply(-1)
+    physicsHandler.applyForce(evadeForce)
+ENDFUNCTION

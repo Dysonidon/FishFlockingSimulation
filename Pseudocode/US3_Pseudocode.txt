@@ -1,0 +1,15 @@
+FUNCTION spawnFish (mouse click):
+ 	IF x AND y distance is greater than 10 AND fish button selected THEN
+		IF x is greater than 0 AND x is less than board size THEN
+			IF y is greater than 0 AND y is less than board size THEN
+				spawn fish at x,y
+			ENDIF
+		ENDIF
+	ENDIF
+ENDFUNCTION
+	
+FUNCTION addFishToBoard (Fish):
+	fish UI = new UIcontroller
+	Fish.setView(fish UI)
+	Board.addFishUi
+ENDFUNCTION
